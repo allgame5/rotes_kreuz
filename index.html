@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bestellung – ÖRK‑Fest</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="menu.js"></script>
+  <script type="module" src="app.js" defer></script>
+</head>
+<body class="order">
+  <header>
+    <select id="tableSelect"></select>
+    <button id="openCart" class="primary">Warenkorb (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <main id="menu" class="menu"></main>
+
+  <!-- Modal Warenkorb -->
+  <dialog id="cartDialog">
+    <h3>Bestellung&nbsp;–&nbsp;Tisch <span id="cartTable"></span></h3>
+    <ul id="cartItems"></ul>
+    <p><strong>Summe: €<span id="cartTotal">0.00</span></strong></p>
+    <button id="sendOrder" class="primary">Bestellung senden</button>
+    <button id="closeCart">Abbrechen</button>
+  </dialog>
+</body>
+</html>
