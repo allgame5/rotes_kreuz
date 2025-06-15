@@ -14,9 +14,9 @@
 
     loginBtn.addEventListener('click', async () => {
       const pin = pinInput.value.trim();
-      if (pin.length !== 4) return alert('4‑stellige PIN eingeben');
+      if (pin.length !== 6) return alert('6‑stellige PIN eingeben');
       // Wir mappen PIN → E‑Mail ("pinXXXX@example.local") damit Firebase Auth per Mail/Passw funktioniert
-      const email = `pin${pin}@example.local`;
+      const email = `kellner${pin}@restaurant.de`;
       try {
         await signInWithEmailAndPassword(auth, email, pin);
         window.location.href = '/order.html';
