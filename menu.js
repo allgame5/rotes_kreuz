@@ -1,5 +1,6 @@
 export const MENU = [
   // Getränke (15)
+  { name: "Wasser 0,5l",                price: 2.5,  category: "Getränke" },
   { name: "Cola 0,5l",                  price: 2.5,  category: "Getränke" },
   { name: "Fanta 0,5l",                 price: 2.5,  category: "Getränke" },
   { name: "Almdudler 0,5l",             price: 2.8,  category: "Getränke" },
