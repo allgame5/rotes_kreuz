@@ -1,0 +1,47 @@
+export const MENU = [
+  // Getränke (15)
+  { name: "Cola 0,5l",                  price: 2.5,  category: "Getränke" },
+  { name: "Fanta 0,5l",                 price: 2.5,  category: "Getränke" },
+  { name: "Almdudler 0,5l",             price: 2.8,  category: "Getränke" },
+  { name: "Mineral prickelnd 0,5l",     price: 2.2,  category: "Getränke" },
+  { name: "Mineral still 0,5l",         price: 2.2,  category: "Getränke" },
+  { name: "Apfelsaft gespritzt 0,5l",   price: 2.8,  category: "Getränke" },
+  { name: "Orangensaft 0,3l",           price: 2.5,  category: "Getränke" },
+  { name: "Kaffee",                     price: 2.2,  category: "Getränke" },
+  { name: "Bier (Seidl 0,3l)",          price: 3.0,  category: "Getränke" },
+  { name: "Bier (Krügerl 0,5l)",        price: 4.2,  category: "Getränke" },
+  { name: "Weißwein‑Spritzer 0,25l",    price: 2.8,  category: "Getränke" },
+  { name: "Rotwein 0,125l",             price: 2.8,  category: "Getränke" },
+  { name: "Radler 0,5l",                price: 3.0,  category: "Getränke" },
+  { name: "Tee",                        price: 2.0,  category: "Getränke" },
+  { name: "Energy‑Drink 0,25l",         price: 3.2,  category: "Getränke" },
+
+  // Essen (16)
+  { name: "Käsekrainer mit Brot",       price: 4.5,  category: "Essen" },
+  { name: "Bratwürstel mit Sauerkraut", price: 5.0,  category: "Essen" },
+  { name: "Pommes frites",              price: 3.5,  category: "Essen" },
+  { name: "Wiener Schnitzel + Pommes",  price: 8.5,  category: "Essen" },
+  { name: "Leberkässemmel",             price: 3.0,  category: "Essen" },
+  { name: "Kartoffelsalat",             price: 2.8,  category: "Essen" },
+  { name: "Gulaschsuppe",               price: 4.5,  category: "Essen" },
+  { name: "Chili con Carne",            price: 4.5,  category: "Essen" },
+  { name: "Grillkotelett",              price: 6.0,  category: "Essen" },
+  { name: "Grillhendl (½)",             price: 7.5,  category: "Essen" },
+  { name: "Burger Klassik",             price: 5.0,  category: "Essen" },
+  { name: "Cheeseburger",               price: 5.5,  category: "Essen" },
+  { name: "Veggie Burger",              price: 5.5,  category: "Essen" },
+  { name: "Frankfurter Würstel",        price: 3.5,  category: "Essen" },
+  { name: "Bosna",                      price: 4.0,  category: "Essen" },
+  { name: "Langos Knoblauch",           price: 4.0,  category: "Essen" },
+
+  // Dessert (9)
+  { name: "Apfelstrudel",               price: 3.0,  category: "Dessert" },
+  { name: "Topfenstrudel",              price: 3.0,  category: "Dessert" },
+  { name: "Sachertorte",                price: 3.5,  category: "Dessert" },
+  { name: "Schoko‑Muffin",              price: 2.5,  category: "Dessert" },
+  { name: "Kaiserschmarrn",             price: 4.5,  category: "Dessert" },
+  { name: "Palatschinken Marille",      price: 3.5,  category: "Dessert" },
+  { name: "Vanilleeis Becher",          price: 3.0,  category: "Dessert" },
+  { name: "Waffeln Puderzucker",        price: 3.0,  category: "Dessert" },
+  { name: "Kuchen des Tages",           price: 3.0,  category: "Dessert" }
+];
