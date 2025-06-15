@@ -3,7 +3,6 @@ import { MENU } from './menu.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
-// --- Firebase Config (deine Daten einfügen)
 const firebaseConfig = {
   apiKey: "AIzaSyAhj_c8zrE36vIJhdKfaqJ1q4eHAtE988k",
   authDomain: "rotes-kreuz-55946.firebaseapp.com",
@@ -14,26 +13,19 @@ const firebaseConfig = {
   measurementId: "G-REMTQ0EDZP"
 };
 
-// Firebase initialisieren
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
-// --- DOM Elemente
-const menuEl      = document.getElementById('menu');
+const menuEl = document.getElementById('menu');
 const tableSelect = document.getElementById('tableSelect');
-const cartDialog  = document.getElementById('cartDialog');
+const cartDialog = document.getElementById('cartDialog');
 const cartItemsEl = document.getElementById('cartItems');
 const cartTotalEl = document.getElementById('cartTotal');
 const cartTableEl = document.getElementById('cartTable');
 const cartCountEl = document.getElementById('cartCount');
 
-
-// Warenkorb Objekt
 let cart = {};
 
-
-// --- Tische 1‑50 in Auswahl einfügen
 for(let i = 1; i <= 50; i++) {
   const opt = document.createElement('option');
   opt.value = i;
@@ -41,8 +33,6 @@ for(let i = 1; i <= 50; i++) {
   tableSelect.appendChild(opt);
 }
 
-
-// --- Menükarte bauen
 MENU.forEach((item, idx) => {
   const card = document.createElement('div');
   card.className = 'card';
@@ -51,22 +41,16 @@ MENU.forEach((item, idx) => {
   menuEl.appendChild(card);
 });
 
-
-// --- Artikel in Warenkorb hinzufügen
 function addToCart(idx) {
   cart[idx] = (cart[idx] || 0) + 1;
   updateCartCount();
 }
 
-
-// --- Anzahl im Warenkorb aktualisieren
 function updateCartCount() {
   const count = Object.values(cart).reduce((a, b) => a + b, 0);
   cartCountEl.textContent = count;
 }
 
-
-// --- Warenkorb anzeigen
 document.getElementById('openCart').onclick = () => {
   if (!tableSelect.value) {
     alert('Bitte Tisch wählen');
@@ -77,11 +61,8 @@ document.getElementById('openCart').onclick = () => {
   cartDialog.showModal();
 };
 
-// Warenkorb schließen
 document.getElementById('closeCart').onclick = () => cartDialog.close();
 
-
-// --- Warenkorb rendern (Artikel + Summe)
 function renderCart() {
   cartItemsEl.innerHTML = '';
   let sum = 0;
@@ -98,14 +79,11 @@ function renderCart() {
   cartTotalEl.textContent = sum.toFixed(2);
 }
 
-
-// --- Bestellung senden (nur Firebase, kein localStorage)
 document.getElementById('sendOrder').onclick = async () => {
   if (Object.keys(cart).length === 0) {
     alert('Warenkorb leer');
     return;
   }
-
   if (!tableSelect.value) {
     alert('Bitte Tisch wählen');
     return;
@@ -118,8 +96,6 @@ document.getElementById('sendOrder').onclick = async () => {
       createdAt: serverTimestamp()
     });
 
-    broadcast();
-
     cart = {};
     updateCartCount();
     cartDialog.close();
@@ -130,11 +106,3 @@ document.getElementById('sendOrder').onclick = async () => {
     alert('Bestellung konnte nicht gesendet werden');
   }
 };
-
-
-// --- Broadcast an Küche (für Updates)
-const bc = new BroadcastChannel('orders');
-
-function broadcast() {
-  bc.postMessage('update');
-}
