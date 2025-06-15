@@ -1,5 +1,23 @@
 import { MENU } from './menu.js';
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+// Firebase Config – bitte durch deine Werte ersetzen:
+const firebaseConfig = {
+  apiKey: "AIzaSyAhj_c8zrE36vIJhdKfaqJ1q4eHAtE988k",
+  authDomain: "rotes-kreuz-55946.firebaseapp.com",
+  projectId: "rotes-kreuz-55946",
+  storageBucket: "rotes-kreuz-55946.firebasestorage.app",
+  messagingSenderId: "598428252142",
+  appId: "1:598428252142:web:db2d1d23547b3de83240ff",
+  measurementId: "G-REMTQ0EDZP"
+};
+
+// Firebase initialisieren
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const menuEl      = document.getElementById('menu');
 const tableSelect = document.getElementById('tableSelect');
 const cartDialog  = document.getElementById('cartDialog');
@@ -59,14 +77,26 @@ function renderCart(){
   cartTotalEl.textContent=sum.toFixed(2);
 }
 
-// --- Bestellung senden
-sendOrder.onclick=()=>{
+// --- Bestellung senden (nur Firebase, kein localStorage)
+sendOrder.onclick=async ()=>{
   if(Object.keys(cart).length===0) return alert('Warenkorb leer');
-  const orders=JSON.parse(localStorage.getItem('orders')||'[]');
-  orders.push({ id:Date.now(), table:tableSelect.value, items:cart, time:new Date().toLocaleTimeString() });
-  localStorage.setItem('orders',JSON.stringify(orders));
-  broadcast();
-  cart={}; updateCartCount(); cartDialog.close(); alert('Bestellung gesendet');
+  if(!tableSelect.value) return alert('Bitte Tisch wählen');
+
+  try {
+    await addDoc(collection(db, 'orders'), {
+      table: tableSelect.value,
+      items: cart,
+      createdAt: serverTimestamp()
+    });
+    broadcast();
+    cart={};
+    updateCartCount();
+    cartDialog.close();
+    alert('Bestellung gesendet');
+  } catch(e) {
+    console.error('Fehler beim Senden der Bestellung:', e);
+    alert('Bestellung konnte nicht gesendet werden');
+  }
 };
 
 // --- Broadcast an Küche
