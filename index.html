@@ -2,27 +2,49 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bestellung – ÖRK‑Fest</title>
   <link rel="stylesheet" href="styles.css" />
   <script type="module" src="menu.js"></script>
   <script type="module" src="app.js" defer></script>
 </head>
 <body class="order">
+
   <header>
-    <select id="tableSelect"></select>
-    <button id="openCart" class="primary">Warenkorb (<span id="cartCount">0</span>)</button>
+    <div id="tableInput">
+      <input type="text" id="tableNumber" readonly placeholder="Tischnummer eingeben" maxlength="2" />
+      <div id="numPad">
+        <!-- Nummernblock -->
+        <button>1</button><button>2</button><button>3</button>
+        <button>4</button><button>5</button><button>6</button>
+        <button>7</button><button>8</button><button>9</button>
+        <button>←</button><button>0</button><button id="confirmTable">OK</button>
+      </div>
+    </div>
+
+    <div id="tableSelected" style="margin-left:20px; font-weight:bold;"></div>
+
+    <button id="openCart" class="primary">Warenkorb (<span id="cartCount">0</span>)</button>
   </header>
+
+  <nav id="categoryNav">
+    <button data-category="drinks" class="categoryBtn active">Getränke</button>
+    <button data-category="food" class="categoryBtn">Essen</button>
+    <button data-category="dessert" class="categoryBtn">Dessert</button>
+  </nav>
 
   <main id="menu" class="menu"></main>
 
-  <!-- Modal Warenkorb -->
   <dialog id="cartDialog">
-    <h3>Bestellung&nbsp;–&nbsp;Tisch <span id="cartTable"></span></h3>
+    <h3>Bestellung – Tisch <span id="cartTable"></span></h3>
+
     <ul id="cartItems"></ul>
-    <p><strong>Summe: €<span id="cartTotal">0.00</span></strong></p>
+
+    <p><strong>Summe: €<span id="cartTotal">0.00</span></strong></p>
+
     <button id="sendOrder" class="primary">Bestellung senden</button>
     <button id="closeCart">Abbrechen</button>
   </dialog>
+
 </body>
 </html>
