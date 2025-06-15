@@ -1,50 +1,27 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="de"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bestellung – ÖRK‑Fest</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
   <script type="module" src="menu.js"></script>
-  <script type="module" src="app.js" defer></script>
+  <script type="module" src="app.js" defer=""></script>
 </head>
 <body class="order">
-
   <header>
-    <div id="tableInput">
-      <input type="text" id="tableNumber" readonly placeholder="Tischnummer eingeben" maxlength="2" />
-      <div id="numPad">
-        <!-- Nummernblock -->
-        <button>1</button><button>2</button><button>3</button>
-        <button>4</button><button>5</button><button>6</button>
-        <button>7</button><button>8</button><button>9</button>
-        <button>←</button><button>0</button><button id="confirmTable">OK</button>
-      </div>
-    </div>
-
-    <div id="tableSelected" style="margin-left:20px; font-weight:bold;"></div>
-
-    <button id="openCart" class="primary">Warenkorb (<span id="cartCount">0</span>)</button>
+    <select id="tableSelect"><option value="1">Tisch 1</option><option value="2">Tisch 2</option><option value="3">Tisch 3</option><option value="4">Tisch 4</option><option value="5">Tisch 5</option><option value="6">Tisch 6</option><option value="7">Tisch 7</option><option value="8">Tisch 8</option><option value="9">Tisch 9</option><option value="10">Tisch 10</option><option value="11">Tisch 11</option><option value="12">Tisch 12</option><option value="13">Tisch 13</option><option value="14">Tisch 14</option><option value="15">Tisch 15</option><option value="16">Tisch 16</option><option value="17">Tisch 17</option><option value="18">Tisch 18</option><option value="19">Tisch 19</option><option value="20">Tisch 20</option><option value="21">Tisch 21</option><option value="22">Tisch 22</option><option value="23">Tisch 23</option><option value="24">Tisch 24</option><option value="25">Tisch 25</option><option value="26">Tisch 26</option><option value="27">Tisch 27</option><option value="28">Tisch 28</option><option value="29">Tisch 29</option><option value="30">Tisch 30</option><option value="31">Tisch 31</option><option value="32">Tisch 32</option><option value="33">Tisch 33</option><option value="34">Tisch 34</option><option value="35">Tisch 35</option><option value="36">Tisch 36</option><option value="37">Tisch 37</option><option value="38">Tisch 38</option><option value="39">Tisch 39</option><option value="40">Tisch 40</option><option value="41">Tisch 41</option><option value="42">Tisch 42</option><option value="43">Tisch 43</option><option value="44">Tisch 44</option><option value="45">Tisch 45</option><option value="46">Tisch 46</option><option value="47">Tisch 47</option><option value="48">Tisch 48</option><option value="49">Tisch 49</option><option value="50">Tisch 50</option></select>
+    <button id="openCart" class="primary">Warenkorb&nbsp;(<span id="cartCount">0</span>)</button>
   </header>
 
-  <nav id="categoryNav">
-    <button data-category="drinks" class="categoryBtn active">Getränke</button>
-    <button data-category="food" class="categoryBtn">Essen</button>
-    <button data-category="dessert" class="categoryBtn">Dessert</button>
-  </nav>
+  <main id="menu" class="menu"><div class="card"><strong>Cola&nbsp;0,5l</strong><br>€2.50</div><div class="card"><strong>Fanta&nbsp;0,5l</strong><br>€2.50</div><div class="card"><strong>Almdudler&nbsp;0,5l</strong><br>€2.80</div><div class="card"><strong>Mineral prickelnd&nbsp;0,5l</strong><br>€2.20</div><div class="card"><strong>Mineral still&nbsp;0,5l</strong><br>€2.20</div><div class="card"><strong>Apfelsaft gespritzt&nbsp;0,5l</strong><br>€2.80</div><div class="card"><strong>Orangensaft&nbsp;0,3l</strong><br>€2.50</div><div class="card"><strong>Kaffee</strong><br>€2.20</div><div class="card"><strong>Bier&nbsp;(Seidl&nbsp;0,3l)</strong><br>€3.00</div><div class="card"><strong>Bier&nbsp;(Krügerl&nbsp;0,5l)</strong><br>€4.20</div><div class="card"><strong>Weißwein‑Spritzer&nbsp;0,25l</strong><br>€2.80</div><div class="card"><strong>Rotwein&nbsp;0,125l</strong><br>€2.80</div><div class="card"><strong>Radler&nbsp;0,5l</strong><br>€3.00</div><div class="card"><strong>Tee</strong><br>€2.00</div><div class="card"><strong>Energy‑Drink&nbsp;0,25l</strong><br>€3.20</div><div class="card"><strong>Käsekrainer mit Brot</strong><br>€4.50</div><div class="card"><strong>Bratwürstel mit Sauerkraut</strong><br>€5.00</div><div class="card"><strong>Pommes frites</strong><br>€3.50</div><div class="card"><strong>Wiener Schnitzel + Pommes</strong><br>€8.50</div><div class="card"><strong>Leberkässemmel</strong><br>€3.00</div><div class="card"><strong>Kartoffelsalat</strong><br>€2.80</div><div class="card"><strong>Gulaschsuppe</strong><br>€4.50</div><div class="card"><strong>Chili con Carne</strong><br>€4.50</div><div class="card"><strong>Grillkotelett</strong><br>€6.00</div><div class="card"><strong>Grillhendl (½)</strong><br>€7.50</div><div class="card"><strong>Burger Klassik</strong><br>€5.00</div><div class="card"><strong>Cheeseburger</strong><br>€5.50</div><div class="card"><strong>Veggie Burger</strong><br>€5.50</div><div class="card"><strong>Frankfurter Würstel</strong><br>€3.50</div><div class="card"><strong>Bosna</strong><br>€4.00</div><div class="card"><strong>Langos Knoblauch</strong><br>€4.00</div><div class="card"><strong>Apfelstrudel</strong><br>€3.00</div><div class="card"><strong>Topfenstrudel</strong><br>€3.00</div><div class="card"><strong>Sachertorte</strong><br>€3.50</div><div class="card"><strong>Schoko‑Muffin</strong><br>€2.50</div><div class="card"><strong>Kaiserschmarrn</strong><br>€4.50</div><div class="card"><strong>Palatschinken Marille</strong><br>€3.50</div><div class="card"><strong>Vanilleeis Becher</strong><br>€3.00</div><div class="card"><strong>Waffeln Puderzucker</strong><br>€3.00</div><div class="card"><strong>Kuchen des Tages</strong><br>€3.00</div></main>
 
-  <main id="menu" class="menu"></main>
-
+  <!--&nbsp;Modal&nbsp;Warenkorb&nbsp;-->
   <dialog id="cartDialog">
-    <h3>Bestellung – Tisch <span id="cartTable"></span></h3>
-
+    <h3>Bestellung&nbsp;–&nbsp;Tisch&nbsp;<span id="cartTable"></span></h3>
     <ul id="cartItems"></ul>
-
-    <p><strong>Summe: €<span id="cartTotal">0.00</span></strong></p>
-
+    <p><strong>Summe:&nbsp;€<span id="cartTotal">0.00</span></strong></p>
     <button id="sendOrder" class="primary">Bestellung senden</button>
     <button id="closeCart">Abbrechen</button>
   </dialog>
 
-</body>
-</html>
+
+</body></html>
