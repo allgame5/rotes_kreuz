@@ -1,0 +1,20 @@
+/* Mobile‑first, simple ÖRK‑rot Akzent */
+:root { --accent:#e20613; }
+*{box-sizing:border-box;}
+body{margin:0;font-family:system-ui,sans-serif;}
+header{display:flex;gap:.5rem;padding:.5rem;background:#f2f2f2;}
+select{flex:1;padding:.4rem;border-radius:.4rem;font-size:1rem;}
+button{padding:.5rem 1rem;border:none;border-radius:.5rem;font-size:1rem;cursor:pointer;}
+button.primary{background:var(--accent);color:#fff;}
+.main{padding:.5rem;}
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.5rem;padding:.5rem;}
+.card{background:#fff;border:1px solid #ddd;border-radius:.75rem;padding:.5rem;text-align:center;cursor:pointer;}
+.card:active{background:#ffe6e8;}
+.card.out{opacity:.4;cursor:not-allowed;}
+/* Cart Dialog */
+dialog{border:none;border-radius:1rem;padding:1rem;width:90%;max-width:400px;}
+#cartItems{list-style:none;padding:0;}
+.cart-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.25rem;}
+/* Kitchen */
+.kitchen-order{border:2px solid var(--accent);border-radius:1rem;padding:.75rem;margin:.5rem 0;}
+.kitchen-order h3{margin:.25rem 0;}
