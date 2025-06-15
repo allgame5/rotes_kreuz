@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Produkte hinzufügen</title>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+</head>
+<body>
+  <h2>Produkte automatisch hinzufügen</h2>
+  <button onclick="produkteHinzufuegen()">Produkte einfügen</button>
+
+  <script>
+    // 🔧 Firebase Config hier einfügen
+    const firebaseConfig = {
+      apiKey: "AIzaSyAhj_c8zrE36vIJhdKfaqJ1q4eHAtE988k",
+  authDomain: "rotes-kreuz-55946.firebaseapp.com",
+  projectId: "rotes-kreuz-55946",
+  storageBucket: "rotes-kreuz-55946.firebasestorage.app",
+  messagingSenderId: "598428252142",
+  appId: "1:598428252142:web:778af9eb1dcc2c303240ff",
+  measurementId: "G-3T939H2848"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    async function produkteHinzufuegen() {
+      const produkte = [
+        { name: "Cola 0.5l", preis: 2.50, kategorie: "Getränke", verfuegbar: true },
+        { name: "Fanta 0.5l", preis: 2.50, kategorie: "Getränke", verfuegbar: true },
+        { name: "Wasser still", preis: 2.00, kategorie: "Getränke", verfuegbar: true },
+        { name: "Bier 0.5l", preis: 3.00, kategorie: "Getränke", verfuegbar: true },
+        { name: "Weißwein 1/8l", preis: 2.80, kategorie: "Getränke", verfuegbar: true },
+        { name: "Kaffee", preis: 2.20, kategorie: "Getränke", verfuegbar: true },
+
+        { name: "Würstel mit Senf", preis: 4.00, kategorie: "Essen", verfuegbar: true },
+        { name: "Pommes", preis: 3.50, kategorie: "Essen", verfuegbar: true },
+        { name: "Schnitzelsemmel", preis: 5.50, kategorie: "Essen", verfuegbar: true },
+        { name: "Kotelett mit Brot", preis: 6.00, kategorie: "Essen", verfuegbar: true },
+        { name: "Gulaschsuppe", preis: 4.50, kategorie: "Essen", verfuegbar: true },
+        { name: "Cheeseburger", preis: 5.00, kategorie: "Essen", verfuegbar: true },
+
+        { name: "Kuchen", preis: 2.50, kategorie: "Dessert", verfuegbar: true },
+        { name: "Palatschinken", preis: 3.50, kategorie: "Dessert", verfuegbar: true },
+        { name: "Vanilleeis", preis: 2.80, kategorie: "Dessert", verfuegbar: true }
+      ];
+
+      for (let produkt of produkte) {
+        await db.collection("produkte").add(produkt);
+      }
+
+      alert("Produkte wurden erfolgreich hinzugefügt 🎉");
+    }
+  </script>
+</body>
+</html>
